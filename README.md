@@ -1,2 +1,2 @@
-# java-tdd-junit
-Java TDD - testes automatizados com Junit
+# Java TDD
+> Testes automatizados com Junit
