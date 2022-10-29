@@ -1,5 +1,6 @@
 package br.com.flaviocardoso.test.java;
 
+import static org.junit.Assert.assertThrows;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.math.BigDecimal;
@@ -15,8 +16,16 @@ class BonusServiceTest {
 	@Test
 	void funcionarioComSalarioAcimaDe1000EZero() {
 		BonusService service = new BonusService();
-		BigDecimal bonus = service.calcularBonus(new Funcionario("jjjjj", LocalDate.now(), new BigDecimal("25000")));
-		assertEquals(new BigDecimal("0.00"), bonus);
+		;
+		assertThrows(
+				IllegalArgumentException.class, 
+				() -> service.calcularBonus(new Funcionario("jjjjj", LocalDate.now(), new BigDecimal("25000"))));
+//		try {
+//			service.calcularBonus(new Funcionario("jjjjj", LocalDate.now(), new BigDecimal("25000")));
+//			fail("Exceção esperada!");
+//		} catch(Exception e) {
+//			assertEquals("Funcionario com o salario maior do R$10000,00 não pode receber bonus!", e.getMessage());
+//		}
 	}
 	
 	@Test
